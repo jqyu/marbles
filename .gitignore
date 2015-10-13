@@ -1,0 +1,11 @@
+# dependencies
+/node_modules
+
+# build direcotry
+/dist
+
+# misc stuff
+.DS_Store
+*.swp
+*.swo
+
