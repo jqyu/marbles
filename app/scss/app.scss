@@ -1,1 +1,15 @@
+// colors
+$light: #B9E3C6;
+$med: #59C9A5;
+$dark: #23395B;
+$accent: #FFFD98;
+$red: #D81E5B;
+
+// metrics 
+$unit: 12px;
+$baseline: 24px;
+
+
+// partials
 @import "partials/base";
+@import "partials/splash";
