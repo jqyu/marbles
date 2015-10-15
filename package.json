@@ -2,13 +2,17 @@
   "name": "marbles",
   "version": "0.0.0",
   "description": "marbles front-end app",
-  "dependencies": {},
+  "main": "index.js",
+  "dependencies": {
+    "express": "^4.13.3",
+    "ws": "^0.8.0"
+  },
   "devDependencies": {
     "babelify": "^6.3.0",
     "browserify": "^11.2.0",
     "gulp": "^3.9.0",
-    "gulp-connect": "^2.2.0",
     "gulp-html-replace": "^1.5.4",
+    "gulp-nodemon": "^2.0.4",
     "gulp-notify": "^2.2.0",
     "gulp-sass": "^2.0.4",
     "gulp-streamify": "^1.0.2",

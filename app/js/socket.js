@@ -5,10 +5,17 @@
  */
 
 import { reduceState, addListener } from './state';
+import config from '../../config/environment';
+
+let wsUrl = `ws://${config.ws.host}`;
 
 class Socket {
 
   constructor() {
+    this.ws = new WebSocket(wsUrl);
+    this.ws.onmessage = function() {
+      console.log('tock...');
+    };
   }
   
 }

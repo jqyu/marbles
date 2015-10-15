@@ -1,0 +1,13 @@
+module.exports = {
+
+  http: {
+    host: 'localhost:4200',
+    port: 4200
+  },
+
+  ws: {
+    host: 'localhost:8000',
+    port: 8000
+  }  
+
+}

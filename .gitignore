@@ -1,3 +1,6 @@
+# environment
+/config/environment.js
+
 # dependencies
 /node_modules
 

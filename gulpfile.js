@@ -6,8 +6,8 @@ var notify      = require('gulp-notify');
 
 var babelify    = require('babelify');
 var browserify  = require('browserify');
-var connect     = require('gulp-connect');
 var htmlreplace = require('gulp-html-replace');
+var nodemon     = require('gulp-nodemon');
 var sass        = require('gulp-sass');
 var source      = require('vinyl-source-stream');
 var streamify   = require('gulp-streamify');
@@ -33,27 +33,23 @@ var paths = {
   }
 }
 
-gulp.task('default', ['html:copy', 'html:watch', 'sass:build', 'sass:watch', 'js:watch', 'webserver:livereload']);
-gulp.task('production', ['html:replace', 'sass:build', 'js:build', 'webserver:production']);
+gulp.task('default', ['html:copy', 'html:watch', 'sass:build', 'sass:watch', 'js:watch', 'webserver']);
+gulp.task('production', ['html:replace', 'sass:build', 'js:build']);
 
  //-------------------------------\\
 // web server stuff ---------------\\
 
-gulp.task('webserver:livereload', function() {
-  connect.server({
-    root: [paths.dest, paths.public],
-    fallback: 'index.html',
-    livereload: true,
-    port: 4200
+var gNODE = gutil.colors.inverse.green("NODE:");
+gulp.task('webserver', function() {
+  var nm = nodemon({
+    script: 'index.js',
+    ext: 'js',
+    ignore: ['.git', 'node_modules/**/node_modules', 'app', 'dist'],
+    env: { 'NODE_ENV': 'development' }
   });
-});
-
-gulp.task('webserver:production', function() {
-  connect.server({
-    root: [paths.dest, paths.public],
-    fallback: 'index.html',
-    port: process.env.PORT || 80 
-  });
+  nm.on('restart', function() {
+    gutil.log(gNODE, "Restarting..."); 
+  })
 });
 
  //-------------------------------\\
